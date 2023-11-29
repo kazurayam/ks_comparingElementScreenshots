@@ -1,0 +1,10 @@
+{
+  "keywordFileContentHash": "00DF0BDEB2C0882DE1C6B35521510956",
+  "keywordClasses": [
+    {
+      "name": "my.verifyImageIsDisplayedInScreenExactlyAsIs",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}

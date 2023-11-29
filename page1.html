@@ -3,11 +3,24 @@
 <head>
 <meta charset="utf-8">
 <title>page 1</title>
+<style>
+  img#apple {
+    width: 200px;
+  }
+</style>
 </head>
 <body>
   <div id="main">
     <h1>A bite in the apple</h1>
-    <img src="./a-bite-in-the-apple.png" alt="as_is">
+    <img id="apple" src="./a-bite-in-the-apple.png" alt="as_is">
+    <p>imgWidth: <span id="imgWidth"></span>, imgHeight: <span id="imgHeight"></span></p>
   </div>
+  <script>
+document.addEventListener("load", function () {
+    let img = document.querySelector('#apple');
+    document.querySelector('#imgWidth').textContent = img.style.width + "px";
+    document.querySelector('#imgHeight').textContent = img.style.height + "px";
+});
+  </script>
 </body>
 </html>
