@@ -1,0 +1,10 @@
+{
+  "keywordFileContentHash": "0478B2BAF9C09079CC515F5C4C1C7762",
+  "keywordClasses": [
+    {
+      "name": "my.VerifyImgSrcURL",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}
