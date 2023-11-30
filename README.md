@@ -78,7 +78,7 @@ But I can tell you the reason. The apple image was resized by CSS width property
     <img id="apple" src="./a-bite-in-the-apple.png" alt="as_is" style="width: 100px">
 ```
 
-I can tell you the reason why the keyword failed. The image in the `a-bite-in-the-apple.png` file has the original width = 200px. But the page2.html specifies resizing the image by `style="width: 100px"`. In the browser's view port, the image looks different from the original PNG file. Therefore the keyword failed.
+The original image in the `a-bite-in-the-apple.png` file has the width = 200px. But the page2.html specifies resizing the image by `style="width: 100px"`. So, in the browser's view port, the image looks different from the original PNG file. Therefore the `WebUI.verifyImagePresent` keyword failed to find the apple. How poor the keyword is!
 
 ## "Test Cases/test_page3" failed
 
@@ -109,24 +109,19 @@ But I can tell you the reason. The [page2.html](https://kazuraaym.github.io/ks_v
     <img id="apple" src="./a-bite-in-the-apple.png" alt="as_is">
 ```
 
-The `WebUI.verifyImagePresent` keyword tries to find the target image in the screenshot of the current desktop. It does not automatically scroll the browser's view port to the target `<img>` element. Therefore `WebUI.verifyImagePresent` was tricked by the long paragraphs. The keword was unabled to find the concealed apple image.
+The `WebUI.verifyImagePresent` keyword tries to find the target image in the screenshot of the current desktop. It does not automatically scroll the browser's view port to the target `<img>` element. Therefore `WebUI.verifyImagePresent` was tricked by the long paragraphs. Therefore the `WebUI.verifyImagePresent` keyword was unabled to find the concealed apple image. How poor the keyword is!
 
+## Why the message from the keyword is so poor?
 
-## Conclusion
+As the above samples show, the error message emitted by the `WebUI.verifyImagePresent` keyword is poor. It tells nothing about why the keyword failed to find the image you specified. Therefore when the keyword failed, almost always, the users will loose their way what to do next to fix the problem. I think that this poorness of diagnostics from the keyword is the most serious defect of the keyword.
 
+Why the message is so poor?
 
-
-
-
-
-
-How the verifyImagePresent keyword is implemented
-
-You can find the source of the `WebUI.verifyImagePresent` keyword at
+You can study the source code and find the reason. You can find the source code of `WebUI.verifyImagePresent` keyword at the following:
 
 - https://github.com/katalon-studio/katalon-studio-testing-framework/blob/master/Include/scripts/groovy/com/kms/katalon/core/webui/keyword/builtin/VerifyImagePresentKeyword.groovy
 
-The `VerifyImagePresentKeyword` class delegates the task of "verifying if the image is present in the web page" to other classes. Ultimately the following class does the task.
+he `VerifyImagePresentKeyword` class delegates the task of "verifying if the image is present in the web page" to other classes. Ultimately the following class does the task.
 
 - https://github.com/katalon-studio/katalon-studio-testing-framework/blob/master/Include/scripts/groovy/com/kms/katalon/core/webui/common/ScreenUtil.java
 
@@ -159,17 +154,21 @@ public class ScreenUtil {
     }
 ```
 
-
-
-
-http://doc.sikuli.org/region.html#finding-inside-a-region-and-waiting-for-a-visual-event
-
-Sikulix Region
-https://sikulix.github.io/docs/api/region/
-
-Display resolution matters
-https://stackoverflow.com/questions/47644402/getting-find-failed-errors-in-sikuli
-
+The point is this single line:
 ```
-	<classpathentry kind="lib" path="/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/lib/repackaged-sikuli-api-1.0.2-standalone.jar"/>
+            ScreenRegion reg = this.mainScreen.find(target);
 ```
+
+Katalon's `WebUI.verifyImagePresent` keyword is a thin wrapper of the [org.sikuli.api.DefaultScreenRegion.find(ScreenRegion)](https://javadox.com/org.sikuli/sikuli-api/1.0.2/org/sikuli/api/DefaultScreenRegion.html#find(org.sikuli.api.Target)). The `DefaultScreenRegion.find()` method just returns null when it failed to find the "apple" image in the desktop screenshot. It does not give any diagnostics. The `WebUI.verifyImagePresent` keyword checks if the result is null or not. When null, the keyword fails. It does no more than that.
+
+## My Conclusion
+
+The `WebUI.verifyImagePresent` keywords quite often fails due to many causes. I just tell you some reasons:
+
+1. Your test code does not wait the page to load completely
+2. The `<img>` element is resized by CSS, therefore the image is displayed diffent from the image file
+3. The `<img>` element is not displayed the view port of the browser. You may need to scroll the view port to the target `<img>` element explicitly.
+
+When `WebUI.verifyImagePresent` keyword failed, Katalon Studio won't given any diagnostics why it failed. Therefore it is very difficult to fix the failure.
+
+I personally would never use the `WebUI.verifyImagePresent` keyword at all. It just annoys me.
