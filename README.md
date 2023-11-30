@@ -171,4 +171,4 @@ The `WebUI.verifyImagePresent` keywords quite often fails due to many causes. I 
 
 When `WebUI.verifyImagePresent` keyword failed, Katalon Studio won't given any diagnostics why it failed. Therefore it is very difficult to fix the failure.
 
-I personally would never use the `WebUI.verifyImagePresent` keyword at all. It just annoys me.
+I personally would never use the `WebUI.verifyImagePresent` keyword. It just annoys me.
