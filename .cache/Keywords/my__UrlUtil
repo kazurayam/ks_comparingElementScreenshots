@@ -1,0 +1,30 @@
+{
+  "keywordFileContentHash": "6A9930BD030516B8C20429C94E83367D",
+  "keywordClasses": [
+    {
+      "name": "my.UrlUtil",
+      "keywordMethods": [
+        {
+          "name": "verifyUrlAccessible",
+          "parameters": [
+            {
+              "name": "urlString",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\n\t * checks if a sinble URL is accesible or not.\n\t *\n\t * @param urlString\n\t * @return true if it is accesible, otherwise false\n\t */"
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

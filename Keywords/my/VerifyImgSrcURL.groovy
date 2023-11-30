@@ -11,20 +11,14 @@ import org.openqa.selenium.WebElement
  * 
  */
 public class VerifyImgSrcURL {
-	
+
 	public static boolean doVerify(WebElement imgElement) {
 		String urlStr = imgElement.getAttribute("src")
 		if (urlStr != null) {
-			try {
-			    CloseableHttpClient client = HttpClientBuilder.create().build()
-			    CloseableHttpResponse response = client.execute(new HttpGet(urlStr))
-				return response.getStatusLine().getStatusCode() == 200;
-			} catch (Exception e) {
-				throw new IOException("failed to get " + urlStr)
-			}
+			return UrlUtil.verifyUrlAccessible(urlStr)
+		
 		} else {
 			throw new IOException("src attribute is not found")
 		}
-		
 	}
 }

@@ -11,7 +11,7 @@ import my.VerifyImgSrcURL
 
 WebUI.openBrowser("https://kazurayam.github.io/ks_verifyImagePresent/page3.html")
 
-WebElement imgElement = WebUI.findWebElement(findTestObject("img"))
+WebElement imgElement = WebUI.findWebElement(findTestObject("img"), 10)
 
 boolean ok = VerifyImgSrcURL.doVerify(imgElement)
 
