@@ -4,15 +4,19 @@ This project is developed in the hope that I could answer to a question raised i
 
 - [Verify image and take screen shot keyword doesn't work](https://forum.katalon.com/t/verify-image-and-take-screen-shot-keyword-doesnt-work/108573)
 
-The original poster wrote that she/he tried to used the `WebUI.verifyImagePresent` keyword. She/he failed, and could not find the reason why. I search the Katalon Forum to find nothing helpful. Therefore She/he posted a new one asking for help.
+The original poster tried the [`WebUI.verifyImagePresent`](https://docs.katalon.com/docs/katalon-studio/keywords/keyword-description-in-katalon-studio/web-ui-keywords/webui-verify-image-present) keyword in her/his Katalon test script. The poster found the keyword did not work as expected. The poster searched the Katlaon Forum for help but could not find any.
 
-I would show you some sample codes with explanations.
+Here I would show some sample codes and explain.
 
-Sample htmls are [here](https://kazurayam.github.io/ks_verifyImagePresent/)
+You can see the target URLs to test from [here](https://kazurayam.github.io/ks_verifyImagePresent/)
 
 ## "Test Cases/test_page1"
 
+- [test_page1](https://github.com/kazurayam/ks_verifyImagePresent/blob/develop/Scripts/test_page1/Script1701309121815.groovy)
 
+```
+
+```
 
 ## Conclusion
 
