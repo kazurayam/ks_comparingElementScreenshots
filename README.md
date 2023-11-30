@@ -8,11 +8,14 @@ The original poster wrote that she/he tried to used the `WebUI.verifyImagePresen
 
 I would show you some sample codes with explanations.
 
+Sample htmls are [here](https://kazurayam.github.io/ks_verifyImagePresent/)
+
 ## "Test Cases/test_page1"
 
 
 
 ## Conclusion
+
 
 
 
