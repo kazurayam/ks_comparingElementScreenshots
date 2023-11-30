@@ -169,6 +169,6 @@ The `WebUI.verifyImagePresent` keywords quite often fails due to many causes. I 
 2. The `<img>` element can be resized by CSS, therefore the image is displayed diffent from the image file
 3. The `<img>` element may be located outside the view port of the browser. You may need to scroll the view port to the target `<img>` element explicitly.
 
-When `WebUI.verifyImagePresent` keyword failed, Katalon Studio won't given any diagnostics why it failed. Therefore it is very difficult to fix the failure.
+When `WebUI.verifyImagePresent` keyword failed, Katalon Studio won't given any diagnostics why it failed. Katalon Studio can give you no clue to fix the failure.
 
 I personally would never use the `WebUI.verifyImagePresent` keyword. It just annoys me.
