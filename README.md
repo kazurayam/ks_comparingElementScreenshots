@@ -1,22 +1,38 @@
-# ks_verifyImagePresent
+# [Katalon Studio] Why WebUI.verifyImagePresent keyword doesn't work?
 
 This project is developed in the hope that I could answer to a question raised in the Katalon Forum:
 
 - [Verify image and take screen shot keyword doesn't work](https://forum.katalon.com/t/verify-image-and-take-screen-shot-keyword-doesnt-work/108573)
 
-The original poster tried the [`WebUI.verifyImagePresent`](https://docs.katalon.com/docs/katalon-studio/keywords/keyword-description-in-katalon-studio/web-ui-keywords/webui-verify-image-present) keyword in her/his Katalon test script. The poster found the keyword did not work as expected. The poster searched the Katlaon Forum for help but could not find any.
+The original poster tried the [`WebUI.verifyImagePresent`](https://docs.katalon.com/docs/katalon-studio/keywords/keyword-description-in-katalon-studio/web-ui-keywords/webui-verify-image-present) keyword in her/his Katalon test script. The poster found the keyword did not work as expected. The poster searched the Katalon Forum but could not find any helpful information.
 
 Here I would show some sample codes and explain.
 
-You can see the target URLs to test from [here](https://kazurayam.github.io/ks_verifyImagePresent/)
+You can see the URLs as test target in [here](https://kazurayam.github.io/ks_verifyImagePresent/)
 
 ## "Test Cases/test_page1"
 
-- [test_page1](https://github.com/kazurayam/ks_verifyImagePresent/blob/develop/Scripts/test_page1/Script1701309121815.groovy)
+Please read the source code of "Test Cases/test_page1":
 
 ```
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+WebUI.openBrowser("https://kazurayam.github.io/ks_verifyImagePresent/page1.html")
+WebUI.verifyImagePresent(findTestObject("apple"))
+WebUI.closeBrowser()
 ```
+[source](https://github.com/kazurayam/ks_verifyImagePresent/blob/develop/Scripts/test_page1/Script1701309121815.groovy)
+
+This script queries the remote web page at https://kazuraaym.github.io/ks_verifyImagePresent/page1.html . It tries to verify if an image of apple is displayed in it. The Test Object "apple" points the element `<img id="apple">` as follows:
+
+![test object apple](https://kazurayam.github.io/ks_verifyImagePresent/image/test_object_apple.png)
+
+When I ran this, it just passes as I expected.
+
+
+
 
 ## Conclusion
 
