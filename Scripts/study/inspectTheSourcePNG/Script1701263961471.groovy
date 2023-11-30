@@ -7,4 +7,4 @@ BufferedImage bi = ImageIO.read(applePNG)
 int width = bi.getWidth()
 int height = bi.getHeight()
 
-println width + " x " + height
+println width + " x " + height   // 200 x 199

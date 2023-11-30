@@ -1,10 +1,25 @@
 # ks_verifyImagePresent
 
-This project is developed in the hope that I could anser to a question raised in the Katalon Forum:
+This project is developed in the hope that I could answer to a question raised in the Katalon Forum:
 
 - [Verify image and take screen shot keyword doesn't work](https://forum.katalon.com/t/verify-image-and-take-screen-shot-keyword-doesnt-work/108573)
 
-## How the verifyImagePresent keyword is implemented
+The original poster wrote that she/he tried to used the `WebUI.verifyImagePresent` keyword. She/he failed, and could not find the reason why. I search the Katalon Forum to find nothing helpful. Therefore She/he posted a new one asking for help.
+
+I would show you some sample codes with explanations.
+
+## "Test Cases/test_page1"
+
+
+
+## Conclusion
+
+
+
+
+
+
+How the verifyImagePresent keyword is implemented
 
 You can find the source of the `WebUI.verifyImagePresent` keyword at
 
@@ -41,4 +56,19 @@ public class ScreenUtil {
             throw new Exception(StringConstants.COMM_EXC_IMG_FILE_DOES_NOT_EXIST);
         }
     }
+```
+
+
+
+
+http://doc.sikuli.org/region.html#finding-inside-a-region-and-waiting-for-a-visual-event
+
+Sikulix Region
+https://sikulix.github.io/docs/api/region/
+
+Display resolution matters
+https://stackoverflow.com/questions/47644402/getting-find-failed-errors-in-sikuli
+
+```
+	<classpathentry kind="lib" path="/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/lib/repackaged-sikuli-api-1.0.2-standalone.jar"/>
 ```
