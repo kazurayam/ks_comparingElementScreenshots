@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>img</name>
+   <name>img_apple</name>
    <tag></tag>
    <elementGuidId>22f6213b-aac5-4a80-8bae-9da4a81dd38d</elementGuidId>
    <selectorCollection>

@@ -1,11 +1,13 @@
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import java.awt.image.BufferedImage
+import java.math.RoundingMode;
+import java.nio.file.Files
+import java.nio.file.Paths
 
 import javax.imageio.ImageIO
 
 import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
 
 import com.kazurayam.ashotwrapper.AShotWrapper
 import com.kms.katalon.core.webui.driver.DriverFactory
@@ -15,8 +17,9 @@ import ru.yandex.qatools.ashot.Screenshot
 import ru.yandex.qatools.ashot.comparison.ImageDiff
 import ru.yandex.qatools.ashot.comparison.ImageDiffer
 import ru.yandex.qatools.ashot.comparison.ImageMarkupPolicy
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+
+
+assert targetName != null
 
 ImageDiff makeImgDiff(String img1, String img2) {
 	Screenshot ss1 = toScreenshot(img1)
@@ -56,7 +59,9 @@ Double roundUpTo2DecimalPlaces(Double diffRatio) {
 
 
 
-String url = "https://kazurayam.github.io/ks_verifyImagePresent/page1.html"
+Files.createDirectories(Paths.get("tmp/${targetName}"));
+
+String url = "https://kazurayam.github.io/ks_verifyImagePresent/${targetName}.html"
 
 WebUI.openBrowser(url)
 WebUI.verifyElementPresent(findTestObject("img_apple"), 10)
@@ -65,14 +70,15 @@ WebUI.verifyElementPresent(findTestObject("img_apple"), 10)
 BufferedImage image = AShotWrapper.saveElementImage(
 	DriverFactory.getWebDriver(),
 	By.xpath("//img[@id='apple']"),
-	new File("tmp/apple_in_page1.png"))
+	new File("tmp/${targetName}/apple_in_page.png"))
 
 WebUI.closeBrowser()
 
-ImageDiff imageDiff = makeImgDiff("docs/a-bite-in-the-apple.png", "tmp/apple_in_page1.png")
+ImageDiff imageDiff = makeImgDiff("docs/a-bite-in-the-apple.png", "tmp/${targetName}/apple_in_page.png")
 
 // save the diff image into a file
-ImageIO.write(imageDiff.getMarkedImage(),"png", new File("tmp/comparison_marked.png"))
+ImageIO.write(imageDiff.getMarkedImage(),"png", new File("tmp/${targetName}/comparison_marked.png"))
 
 double diffRatio = diffRatio = calculateDiffRatioPercent(imageDiff)
-println "diffRatio=" + diffRatio + "%"
+println targetName + " diffRatio: " + diffRatio + "%"
+
