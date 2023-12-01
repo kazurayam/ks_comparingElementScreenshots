@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>study1</name>
+   <name>verifyImagePresent_alternative_impl</name>
    <tag></tag>
    <comment></comment>
    <testCaseGuid>9626180a-fcfb-43e6-8d63-2d6c48f4f919</testCaseGuid>

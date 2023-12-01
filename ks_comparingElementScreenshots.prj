@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
    <description></description>
-   <name>ks_verifyImagePresent</name>
+   <name>ks_comparingElementScreenshotst</name>
    <tag></tag>
    <UUID>cd707512-7d24-4ada-9228-a409d240cb45</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/ks_verifyImagePresent/ks_verifyImagePresent.prj</projectFileLocation>
+   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/ks_comparingElementScreenshots/ks_comparingElementScreenshots.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>

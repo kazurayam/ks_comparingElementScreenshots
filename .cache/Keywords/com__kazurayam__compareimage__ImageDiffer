@@ -1,0 +1,10 @@
+{
+  "keywordFileContentHash": "50E71647FFA3C5E12AEB01F261EFD1FD",
+  "keywordClasses": [
+    {
+      "name": "com.kazurayam.compareimage.ImageDiffer",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}

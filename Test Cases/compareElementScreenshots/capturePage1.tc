@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>run_CompareAppleImage</name>
+   <name>capturePage1</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>ef16a5b6-d687-4d78-b6ff-0e9f43f86e3f</testCaseGuid>
+   <testCaseGuid>0f64e5d8-3770-4606-8c13-a81e7f9f9cb8</testCaseGuid>
 </TestCaseEntity>

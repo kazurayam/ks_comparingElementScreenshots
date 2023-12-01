@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>test_page4</name>
+   <name>comparePage2</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>2f5e670b-a046-47e8-a84c-6665445fd4fc</testCaseGuid>
+   <testCaseGuid>e020e3ab-8573-4d69-8ef7-a6ddeda58713</testCaseGuid>
 </TestCaseEntity>
